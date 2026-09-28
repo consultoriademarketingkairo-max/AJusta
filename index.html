@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AJUSTA | Tratamento de fotos para anúncios de imóveis</title>
+  <meta name="description" content="Tratamos as fotos que você já tem: verticais corrigidas, luz equilibrada, janelas recuperadas. A partir de R$ 10 por foto." />
+  <meta name="theme-color" content="#0B0B0B" />
+
+  <!-- A revelação no scroll só esconde conteúdo quando o JS confirmou que rodou -->
+  <script>document.documentElement.classList.add('js');</script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="preconnect" href="https://images.unsplash.com" />
+
+  <!-- ?v= contra cache: atualize a cada publicação -->
+  <link rel="stylesheet" href="css/style.css?v=7" />
+</head>
+<body>
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+
+  <div class="grain" aria-hidden="true"></div>
+  <div class="progress-laser" aria-hidden="true"></div>
+
+  <!-- ============ NAV ============ -->
+  <header class="nav" id="nav">
+    <a class="logo" href="#topo" aria-label="AJUSTA, voltar ao início" data-logotipo>
+      <svg class="logo-icon" viewBox="0 0 100 100" aria-hidden="true">
+        <polygon class="leg leg-l" points="4,96 30,96 47,6 38,6" />
+        <polygon class="leg leg-r" points="53,6 62,6 96,96 70,96" />
+      </svg>
+      <span class="logo-word" aria-hidden="true">ΛJUSTΛ</span>
+    </a>
+
+    <nav class="nav-links" aria-label="Principal">
+      <a class="nav-link" href="#estagios">Estágios</a>
+      <a class="nav-link" href="#portfolio">Portfólio</a>
+      <a class="nav-link" href="#como-funciona">Como funciona</a>
+      <a class="nav-link" href="#precos">Preços</a>
+      <a class="nav-link" href="#faq">FAQ</a>
+    </nav>
+
+    <a class="btn btn-ghost btn-sm nav-cta" href="#contato">Enviar fotos <span class="arrow" aria-hidden="true">→</span></a>
+
+    <button class="nav-burger" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu-mobile">
+      <span></span><span></span>
+    </button>
+  </header>
+
+  <div class="menu-mobile" id="menu-mobile" hidden>
+    <nav aria-label="Menu mobile">
+      <a href="#estagios">Estágios</a>
+      <a href="#portfolio">Portfólio</a>
+      <a href="#como-funciona">Como funciona</a>
+      <a href="#precos">Preços</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <a class="btn btn-primary" href="#contato">Enviar fotos <span class="arrow" aria-hidden="true">→</span></a>
+  </div>
+
+  <main id="conteudo">
+    <!-- ============ HERO ============ -->
+    <section class="hero" id="topo" aria-labelledby="hero-title">
+
+      <!-- PLACEHOLDER: o "antes" é a mesma imagem com .is-simulated (escurecida e torta via CSS).
+           Com as fotos reais: troque os src por assets/img/imovel-01-antes.jpg e imovel-01-tratada.jpg,
+           remova .is-simulated e o selo "Imagem ilustrativa". -->
+      <div class="hero-media" id="hero-compare" style="--pos: 100%">
+        <div class="hero-media-inner" data-parallax>
+          <img class="hm-img hm-before is-simulated"
+               src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=2000&q=80"
+               alt="Sala de estar como no anúncio original: foto escura, com cores apagadas e paredes inclinadas"
+               fetchpriority="high" />
+          <img class="hm-img hm-after"
+               src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=2000&q=80"
+               alt="A mesma sala após o tratamento AJUSTA: verticais corrigidas, luz equilibrada e cores fiéis"
+               fetchpriority="high" />
+        </div>
+
+        <span class="crop crop-tl" aria-hidden="true"></span>
+        <span class="crop crop-tr" aria-hidden="true"></span>
+        <span class="crop crop-bl" aria-hidden="true"></span>
+        <span class="crop crop-br" aria-hidden="true"></span>
+
+        <div class="hm-laser" aria-hidden="true">
+          <span class="hm-tag hm-tag-before">Antes</span>
+          <span class="hm-tag hm-tag-after">Tratada</span>
+          <span class="hm-handle">
+            <svg viewBox="0 0 24 24" width="18" height="18"><path d="M9 6l-6 6 6 6M15 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>
+          </span>
+        </div>
+
+        <div class="hm-legend mono" aria-hidden="true">
+          <span>Verticais corrigidas</span>
+          <span>Luz equilibrada</span>
+          <span>Janela recuperada</span>
+        </div>
+        <span class="hm-note mono">Imagem ilustrativa</span>
+
+        <label class="sr-only" for="hero-range">Comparar foto antes e depois do tratamento</label>
+        <input class="hm-range" id="hero-range" type="range" min="0" max="100" value="50" />
+      </div>
+
+      <div class="hero-content container">
+        <p class="eyebrow hero-eyebrow" data-scramble>Tratamento de fotos para anúncios de imóveis</p>
+
+        <h1 class="hero-title" id="hero-title" data-split>
+          <span class="line-mask"><span>Seu imóvel</span></span>
+          <span class="line-mask"><span>já é bom.</span></span>
+          <span class="line-mask"><span>Suas fotos,</span></span>
+          <span class="line-mask"><span><span class="hl sheen">ainda não.</span></span></span>
+        </h1>
+
+        <p class="lead hero-lead reveal">
+          Pegamos as fotos que você já tem e entregamos a mesma imagem, do jeito certo:
+          verticais corrigidas, luz equilibrada, janelas recuperadas.
+          <strong>Nada é acrescentado ao imóvel.</strong>
+        </p>
+
+        <div class="hero-actions reveal">
+          <a class="btn btn-primary magnet" href="#contato">Enviar fotos <span class="arrow" aria-hidden="true">→</span></a>
+          <a class="btn btn-ghost" href="#portfolio">Ver antes e depois</a>
+        </div>
+
+        <div class="hero-meta reveal">
+          <span class="mono">A partir de <b>R$ 10</b> / foto</span>
+          <span class="hero-meta-rule" aria-hidden="true"></span>
+          <span>São Paulo, Brasil</span>
+        </div>
+      </div>
+
+      <div class="hero-hint mono" aria-hidden="true">
+        <span class="hint-line"></span>
+        <span class="hint-text hint-hover">Mova o cursor sobre a foto</span>
+        <span class="hint-text hint-touch">Arraste sobre a foto</span>
+      </div>
+
+      <a class="scroll-cue" href="#problema" aria-label="Rolar para a próxima seção">
+        <span class="scroll-cue-line" aria-hidden="true"></span>
+      </a>
+    </section>
+
+    <!-- ============ O PROBLEMA ============ -->
+    <!-- PLACEHOLDER: fotos ilustrativas. Com as fotos reais, use o par antes/tratada de cada imóvel
+         e remova .is-simulated do "antes". -->
+    <section class="problem" id="problema" aria-labelledby="problem-title">
+      <div class="problem-pin container">
+        <header class="sec-head">
+          <p class="eyebrow" data-scramble>O problema</p>
+          <h2 class="h2" id="problem-title" data-split>
+            <span class="line-mask"><span>O comprador decide</span></span>
+            <span class="line-mask"><span class="hl">em segundos.</span></span>
+          </h2>
+          <div>
+            <p class="lead reveal">
+              No portal, cada anúncio disputa atenção com dezenas de outros.
+              Foto escura, torta e com a janela estourada faz o imóvel passar batido
+              antes mesmo da visita.
+            </p>
+            <div class="problem-status">
+              <div class="problem-count" aria-live="polite">
+                <span class="problem-count-num"><span class="pc-num">0</span><span class="of">/<span class="pc-total">8</span></span></span>
+                <span class="problem-count-label">Fotos ajustadas</span>
+              </div>
+              <p class="problem-outro">Mesmas fotos, mesmo imóvel. Outra percepção.</p>
+            </div>
+          </div>
+        </header>
+
+        <div class="problem-stage" aria-label="Oito fotos de imóveis sendo alinhadas e tratadas">
+          <figure class="shot">
+            <img class="is-simulated" src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=800&q=75" alt="" loading="lazy" />
+            <img class="shot-after" src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=800&q=75" alt="Cozinha integrada, foto tratada" loading="lazy" />
+            <span class="shot-laser" aria-hidden="true"></span>
+            <span class="shot-tag is-before" aria-hidden="true">Antes</span><span class="shot-tag is-after" aria-hidden="true">Tratada</span>
+          </figure>
+          <figure class="shot">
+            <img class="is-simulated" src="https://images.unsplash.com/photo-1600573472550-8090b5e0745e?auto=format&fit=crop&w=800&q=75" alt="" loading="lazy" />
+            <img class="shot-after" src="https://images.unsplash.com/photo-1600573472550-8090b5e0745e?auto=format&fit=crop&w=800&q=75" alt="Sala de jantar, foto tratada" loading="lazy" />
+            <span class="shot-laser" aria-hidden="true"></span>
+            <span class="shot-tag is-before" aria-hidden="true">Antes</span><span class="shot-tag is-after" aria-hidden="true">Tratada</span>
+          </figure>
+          <figure class="shot">
+            <img class="is-simulated" src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&w=800&q=75" alt="" loading="lazy" />
+            <img class="shot-after" src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&w=800&q=75" alt="Sala de estar, foto tratada" loading="lazy" />
+            <span class="shot-laser" aria-hidden="true"></span>
+            <span class="shot-tag is-before" aria-hidden="true">Antes</span><span class="shot-tag is-after" aria-hidden="true">Tratada</span>
+          </figure>
+          <figure class="shot">
+            <img class="is-simulated" src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&w=800&q=75" alt="" loading="lazy" />
+            <img class="shot-after" src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&w=800&q=75" alt="Apartamento com sala ampla, foto tratada" loading="lazy" />
+            <span class="shot-laser" aria-hidden="true"></span>
+            <span class="shot-tag is-before" aria-hidden="true">Antes</span><span class="shot-tag is-after" aria-hidden="true">Tratada</span>
+          </figure>
+          <figure class="shot">
+            <img class="is-simulated" src="https://images.unsplash.com/photo-1484154218962-a197022b5858?auto=format&fit=crop&w=800&q=75" alt="" loading="lazy" />
+            <img class="shot-after" src="https://images.unsplash.com/photo-1484154218962-a197022b5858?auto=format&fit=crop&w=800&q=75" alt="Cozinha clara, foto tratada" loading="lazy" />
+            <span class="shot-laser" aria-hidden="true"></span>
+            <span class="shot-tag is-before" aria-hidden="true">Antes</span><span class="shot-tag is-after" aria-hidden="true">Tratada</span>
+          </figure>
+          <figure class="shot">
+            <img class="is-simulated" src="https://images.unsplash.com/photo-1505691938895-1758d7feb511?auto=format&fit=crop&w=800&q=75" alt="" loading="lazy" />
+            <img class="shot-after" src="https://images.unsplash.com/photo-1505691938895-1758d7feb511?auto=format&fit=crop&w=800&q=75" alt="Quarto de casal, foto tratada" loading="lazy" />
+            <span class="shot-laser" aria-hidden="true"></span>
+            <span class="shot-tag is-before" aria-hidden="true">Antes</span><span class="shot-tag is-after" aria-hidden="true">Tratada</span>
+          </figure>
+          <figure class="shot">
+            <img class="is-simulated" src="https://images.unsplash.com/photo-1616594039964-ae9021a400a0?auto=format&fit=crop&w=800&q=75" alt="" loading="lazy" />
+            <img class="shot-after" src="https://images.unsplash.com/photo-1616594039964-ae9021a400a0?auto=format&fit=crop&w=800&q=75" alt="Sala de estar com sofá, foto tratada" loading="lazy" />
+            <span class="shot-laser" aria-hidden="true"></span>
+            <span class="shot-tag is-before" aria-hidden="true">Antes</span><span class="shot-tag is-after" aria-hidden="true">Tratada</span>
+          </figure>
+          <figure class="shot">
+            <img class="is-simulated" src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=800&q=75" alt="" loading="lazy" />
+            <img class="shot-after" src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=800&q=75" alt="Ambiente de estar decorado, foto tratada" loading="lazy" />
+            <span class="shot-laser" aria-hidden="true"></span>
+            <span class="shot-tag is-before" aria-hidden="true">Antes</span><span class="shot-tag is-after" aria-hidden="true">Tratada</span>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ TRÊS ESTÁGIOS ============ -->
+    <!-- PLACEHOLDER: "antes" simulado e "com mobília" de OUTRO cômodo (ilustrativo).
+         Com as fotos reais do mesmo cômodo: imovel-02-antes.jpg, imovel-02-tratada.jpg, imovel-02-mobiliada.jpg -->
+    <section class="stages" id="estagios" aria-labelledby="stages-title">
+      <div class="stages-pin container">
+        <header class="sec-head">
+          <p class="eyebrow" data-scramble>O que entregamos</p>
+          <h2 class="h2" id="stages-title" data-split>
+            <span class="line-mask"><span>O mesmo imóvel em</span></span>
+            <span class="line-mask"><span class="hl">três estágios.</span></span>
+          </h2>
+          <p class="lead reveal">
+            Você escolhe até onde ir, foto por foto. O tratamento corrige o que a câmera errou.
+            A mobília mostra o espaço em uso, sempre identificada como virtual.
+          </p>
+        </header>
+
+        <div class="stages-body">
+          <div class="stages-side">
+            <div class="stage-tabs" role="tablist" aria-label="Estágios da foto">
+              <button class="stage-tab" role="tab" id="st-tab-0" aria-controls="st-panel-0" aria-selected="true" tabindex="0" data-stage="0">
+                <span class="st-name">Antes</span>
+                <span class="st-price mono">Sua foto</span>
+              </button>
+              <button class="stage-tab" role="tab" id="st-tab-1" aria-controls="st-panel-1" aria-selected="false" tabindex="-1" data-stage="1">
+                <span class="st-name">Tratada</span>
+                <span class="st-price mono">R$ 10<small> / foto</small></span>
+              </button>
+              <button class="stage-tab" role="tab" id="st-tab-2" aria-controls="st-panel-2" aria-selected="false" tabindex="-1" data-stage="2">
+                <span class="st-name">Com mobília</span>
+                <span class="st-price mono">R$ 15<small> / foto</small></span>
+              </button>
+            </div>
+
+            <!-- Painéis empilhados na mesma célula: a altura é sempre a do maior (sem pulo ao trocar) -->
+            <div class="stage-panels">
+              <div class="stage-panel is-active" role="tabpanel" id="st-panel-0" aria-labelledby="st-tab-0">
+                <p>A foto como está no anúncio hoje. Escura, torta, com a janela estourada. É ela que o comprador vê primeiro.</p>
+              </div>
+              <div class="stage-panel" role="tabpanel" id="st-panel-1" aria-labelledby="st-tab-1">
+                <p>Verticais corrigidas, luz equilibrada, janela recuperada. <strong>Nada é acrescentado ao imóvel.</strong></p>
+              </div>
+              <div class="stage-panel" role="tabpanel" id="st-panel-2" aria-labelledby="st-tab-2">
+                <p>O ambiente vazio ganha móveis, para o comprador enxergar o espaço em uso. <strong>Sai sempre identificado como ambientação virtual.</strong></p>
+              </div>
+            </div>
+
+            <div class="stage-progress" aria-hidden="true"><span class="stage-progress-bar"></span></div>
+          </div>
+
+          <figure class="stage-frame" style="--p1: 100; --p2: 100">
+            <img class="sf-img is-simulated"
+                 src="https://images.unsplash.com/photo-1757742690834-aa581b9f53b2?auto=format&fit=crop&w=1600&q=80"
+                 alt="Estágio antes: sala vazia com piso de madeira, foto escura e inclinada" loading="lazy" />
+            <img class="sf-img sf-treated"
+                 src="https://images.unsplash.com/photo-1757742690834-aa581b9f53b2?auto=format&fit=crop&w=1600&q=80"
+                 alt="Estágio tratada: a mesma sala com verticais corrigidas e luz equilibrada" loading="lazy" />
+            <img class="sf-img sf-staged"
+                 src="https://images.unsplash.com/photo-1560185893-a55cbc8c57e8?auto=format&fit=crop&w=1600&q=80"
+                 alt="Estágio com mobília: ambiente mobiliado virtualmente, identificado como ambientação virtual" loading="lazy" />
+            <span class="sf-laser sf-laser-1" aria-hidden="true"></span>
+            <span class="sf-laser sf-laser-2" aria-hidden="true"></span>
+            <span class="sf-badge mono">Ambientação virtual</span>
+            <span class="sf-note mono">Imagem ilustrativa</span>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ O QUE AJUSTAMOS ============ -->
+    <!-- Cada card tem uma mini-demonstração que roda quando entra na tela e repete no hover.
+         Os estados "antes" só existem sob .js; sem JS, tudo aparece já ajustado. -->
+    <section class="adjust" id="ajustes" aria-labelledby="adjust-title">
+      <div class="container">
+        <header class="sec-head">
+          <p class="eyebrow" data-scramble>O tratamento</p>
+          <h2 class="h2" id="adjust-title" data-split>
+            <span class="line-mask"><span>O que a câmera erra,</span></span>
+            <span class="line-mask"><span class="hl">a gente ajusta.</span></span>
+          </h2>
+          <p class="lead reveal">
+            Cada foto passa pelas mesmas correções. O imóvel continua exatamente como é,
+            só aparece do jeito certo.
+          </p>
+        </header>
+
+        <div class="adjust-grid">
+          <!-- Verticais -->
+          <article class="card adj-card c-vert reveal" style="--d: 0">
+            <div class="adj-demo demo-vert" aria-hidden="true">
+              <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1400&q=80" alt="" loading="lazy" />
+              <span class="guide g1"></span><span class="guide g2"></span><span class="guide g3"></span>
+              <span class="demo-tag is-before">Antes</span><span class="demo-tag is-after">Tratada</span>
+            </div>
+            <div class="adj-body">
+              <div class="adj-head">
+                <svg class="adj-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="3" width="16" height="18" rx="1"/><path d="M9 3v18M15 3v18"/></svg>
+                <h3 class="adj-title">Verticais corrigidas</h3>
+              </div>
+              <p class="adj-text">Paredes, portas e janelas de pé, como o olho vê na visita. Foto torta passa a sensação de imóvel torto.</p>
+            </div>
+          </article>
+
+          <!-- Luz -->
+          <article class="card adj-card c-luz reveal" style="--d: 1">
+            <div class="adj-demo demo-luz" aria-hidden="true">
+              <img src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=900&q=75" alt="" loading="lazy" />
+              <span class="meter"><span class="meter-mark"></span></span>
+            </div>
+            <div class="adj-body">
+              <div class="adj-head">
+                <svg class="adj-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+                <h3 class="adj-title">Luz equilibrada</h3>
+              </div>
+              <p class="adj-text">Cantos escuros clareados, sem estourar o resto. O ambiente parece tão iluminado quanto é.</p>
+            </div>
+          </article>
+
+          <!-- Janela -->
+          <article class="card adj-card c-janela reveal" style="--d: 2">
+            <div class="adj-demo demo-janela" aria-hidden="true">
+              <img src="https://images.unsplash.com/photo-1757742690834-aa581b9f53b2?auto=format&fit=crop&w=900&q=75" alt="" loading="lazy" />
+              <span class="blown"></span>
+            </div>
+            <div class="adj-body">
+              <div class="adj-head">
+                <svg class="adj-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="1"/><path d="M12 3v18M3 12h18"/></svg>
+                <h3 class="adj-title">Janela recuperada</h3>
+              </div>
+              <p class="adj-text">A janela deixa de ser um clarão branco e volta a mostrar a vista, que muitas vezes é o ponto forte do imóvel.</p>
+            </div>
+          </article>
+
+          <!-- Princípio -->
+          <article class="card adj-card c-principio reveal" style="--d: 0">
+            <div class="adj-demo demo-principio" aria-hidden="true">
+              <p class="pr-text pr-dim">Tratamos a foto,<br />não o imóvel.</p>
+              <p class="pr-text pr-lit">Tratamos a foto,<br />não o imóvel.</p>
+              <span class="pr-laser"></span>
+            </div>
+            <div class="adj-body">
+              <div class="adj-head">
+                <svg class="adj-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l8 3v6c0 4.5-3.4 8.3-8 9-4.6-.7-8-4.5-8-9V6z"/><path d="M8.5 12l2.5 2.5 4.5-5"/></svg>
+                <h3 class="adj-title">Nada é acrescentado</h3>
+              </div>
+              <p class="adj-text">O que o comprador encontra na visita é o que estava no anúncio. Confiança não se recupera depois.</p>
+            </div>
+          </article>
+
+          <!-- Ambientação virtual (PLACEHOLDER: "depois" é outro cômodo) -->
+          <article class="card adj-card c-mobilia reveal" style="--d: 1">
+            <div class="adj-demo demo-mobilia" aria-hidden="true">
+              <img src="https://images.unsplash.com/photo-1757742690834-aa581b9f53b2?auto=format&fit=crop&w=1000&q=75" alt="" loading="lazy" />
+              <img class="mob-after" src="https://images.unsplash.com/photo-1560185893-a55cbc8c57e8?auto=format&fit=crop&w=1000&q=75" alt="" loading="lazy" />
+              <span class="mob-laser"></span>
+              <span class="demo-badge mono">Ambientação virtual</span>
+            </div>
+            <div class="adj-body">
+              <div class="adj-head">
+                <svg class="adj-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 11V8a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v3"/><path d="M2 13a2 2 0 0 1 4 0v2h12v-2a2 2 0 0 1 4 0v5H2z"/><path d="M5 18v2M19 18v2"/></svg>
+                <h3 class="adj-title">Ambientação virtual, identificada</h3>
+              </div>
+              <p class="adj-text">Ambiente vazio ganha móveis para o comprador enxergar o espaço em uso. Toda imagem sai com o aviso de ambientação virtual.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ PORTFÓLIO ============ -->
+    <!-- PLACEHOLDER: pares ilustrativos ("antes" simulado). Trocar pelos pares reais de cada imóvel. -->
+    <section class="portfolio" id="portfolio" aria-labelledby="portfolio-title">
+      <div class="container">
+        <header class="sec-head">
+          <p class="eyebrow" data-scramble>Portfólio</p>
+          <h2 class="h2" id="portfolio-title" data-split>
+            <span class="line-mask"><span>Arraste o laser</span></span>
+            <span class="line-mask"><span class="hl">e compare.</span></span>
+          </h2>
+          <p class="lead reveal">
+            Cada foto tem a linha vermelha no meio. Arraste para um lado e para o outro
+            e veja o mesmo ambiente antes e depois do tratamento.
+          </p>
+        </header>
+
+        <div class="pf-grid">
+          <figure class="pf-item pf-a reveal" style="--d: 0">
+            <div class="compare" style="--pos: 50%">
+              <img class="cmp-before is-simulated" src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1400&q=80" alt="Fachada de casa, foto original do anúncio" loading="lazy" />
+              <img class="cmp-after" src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1400&q=80" alt="Fachada de casa, foto tratada" loading="lazy" />
+              <span class="cmp-laser" aria-hidden="true"><span class="cmp-handle"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M9 6l-6 6 6 6M15 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></span></span>
+              <span class="cmp-tag is-before" aria-hidden="true">Antes</span>
+              <span class="cmp-tag is-after" aria-hidden="true">Tratada</span>
+              <input class="cmp-range" type="range" min="0" max="100" value="50" aria-label="Comparar antes e depois: fachada" />
+            </div>
+            <figcaption class="pf-cap"><span>Fachada</span><span class="mono">Tratada · R$ 10</span></figcaption>
+          </figure>
+
+          <figure class="pf-item pf-b reveal" style="--d: 1">
+            <div class="compare" style="--pos: 50%">
+              <img class="cmp-before is-simulated" src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=1000&q=80" alt="Cozinha, foto original do anúncio" loading="lazy" />
+              <img class="cmp-after" src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=1000&q=80" alt="Cozinha, foto tratada" loading="lazy" />
+              <span class="cmp-laser" aria-hidden="true"><span class="cmp-handle"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M9 6l-6 6 6 6M15 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></span></span>
+              <span class="cmp-tag is-before" aria-hidden="true">Antes</span>
+              <span class="cmp-tag is-after" aria-hidden="true">Tratada</span>
+              <input class="cmp-range" type="range" min="0" max="100" value="50" aria-label="Comparar antes e depois: cozinha" />
+            </div>
+            <figcaption class="pf-cap"><span>Cozinha</span><span class="mono">Tratada · R$ 10</span></figcaption>
+          </figure>
+
+          <figure class="pf-item pf-c reveal" style="--d: 0">
+            <div class="compare" style="--pos: 50%">
+              <img class="cmp-before is-simulated" src="https://images.unsplash.com/photo-1505691938895-1758d7feb511?auto=format&fit=crop&w=1000&q=80" alt="Quarto, foto original do anúncio" loading="lazy" />
+              <img class="cmp-after" src="https://images.unsplash.com/photo-1505691938895-1758d7feb511?auto=format&fit=crop&w=1000&q=80" alt="Quarto, foto tratada" loading="lazy" />
+              <span class="cmp-laser" aria-hidden="true"><span class="cmp-handle"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M9 6l-6 6 6 6M15 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></span></span>
+              <span class="cmp-tag is-before" aria-hidden="true">Antes</span>
+              <span class="cmp-tag is-after" aria-hidden="true">Tratada</span>
+              <input class="cmp-range" type="range" min="0" max="100" value="50" aria-label="Comparar antes e depois: quarto" />
+            </div>
+            <figcaption class="pf-cap"><span>Quarto</span><span class="mono">Tratada · R$ 10</span></figcaption>
+          </figure>
+
+          <figure class="pf-item pf-d reveal" style="--d: 1">
+            <div class="compare" style="--pos: 50%">
+              <img class="cmp-before is-simulated" src="https://images.unsplash.com/photo-1616594039964-ae9021a400a0?auto=format&fit=crop&w=1400&q=80" alt="Sala de estar, foto original do anúncio" loading="lazy" />
+              <img class="cmp-after" src="https://images.unsplash.com/photo-1616594039964-ae9021a400a0?auto=format&fit=crop&w=1400&q=80" alt="Sala de estar, foto tratada" loading="lazy" />
+              <span class="cmp-laser" aria-hidden="true"><span class="cmp-handle"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M9 6l-6 6 6 6M15 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></span></span>
+              <span class="cmp-tag is-before" aria-hidden="true">Antes</span>
+              <span class="cmp-tag is-after" aria-hidden="true">Tratada</span>
+              <input class="cmp-range" type="range" min="0" max="100" value="50" aria-label="Comparar antes e depois: sala de estar" />
+            </div>
+            <figcaption class="pf-cap"><span>Sala de estar</span><span class="mono">Tratada · R$ 10</span></figcaption>
+          </figure>
+        </div>
+        <p class="pf-note mono">Imagens ilustrativas</p>
+      </div>
+
+      <!-- Faixa de texto que corre (acelera com a rolagem) -->
+      <div class="marquee" aria-hidden="true">
+        <div class="marquee-track">
+          <span>Imóvel bem apresentado vende mais</span><i></i>
+          <span>A mesma foto, do jeito certo</span><i></i>
+          <span>Imóvel bem apresentado vende mais</span><i></i>
+          <span>A mesma foto, do jeito certo</span><i></i>
+          <span>Imóvel bem apresentado vende mais</span><i></i>
+          <span>A mesma foto, do jeito certo</span><i></i>
+          <span>Imóvel bem apresentado vende mais</span><i></i>
+          <span>A mesma foto, do jeito certo</span><i></i>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ COMPROMISSO (A em 3D) ============ -->
+    <section class="commit" id="compromisso" aria-labelledby="commit-title">
+      <div class="container commit-inner">
+        <div class="commit-visual">
+          <canvas class="commit-canvas" aria-hidden="true"></canvas>
+          <!-- Reserva: aparece sem WebGL, no celular e com movimento reduzido -->
+          <svg class="commit-fallback" viewBox="0 0 100 100" aria-hidden="true">
+            <defs>
+              <linearGradient id="metal" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" style="stop-color: var(--metal-hi)" />
+                <stop offset=".55" style="stop-color: var(--metal-mid)" />
+                <stop offset="1" style="stop-color: var(--metal-hi)" />
+              </linearGradient>
+            </defs>
+            <polygon points="4,96 30,96 47,6 38,6" fill="url(#metal)" />
+            <polygon points="53,6 62,6 96,96 70,96" fill="url(#metal)" />
+            <line x1="0" y1="62" x2="100" y2="62" style="stroke: var(--accent)" stroke-width=".8" />
+          </svg>
+        </div>
+
+        <div class="commit-copy">
+          <p class="eyebrow" data-scramble>Compromisso</p>
+          <h2 class="h2" id="commit-title" data-split>
+            <span class="line-mask"><span>Da ideia ao impacto,</span></span>
+            <span class="line-mask"><span class="hl">sem atalho.</span></span>
+          </h2>
+          <p class="lead reveal">
+            A AJUSTA é a ponte entre o que o seu anúncio é e o que ele pode ser.
+            Precisão na correção, transparência na entrega.
+          </p>
+          <ul class="commit-list reveal">
+            <li><span>Precisão</span>Cada ajuste tem motivo. Nada de filtro pronto.</li>
+            <li><span>Transparência</span>Ambientação virtual sempre identificada.</li>
+            <li><span>Respeito ao imóvel</span>Nada é acrescentado ao que existe.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ COMO FUNCIONA ============ -->
+    <section class="how" id="como-funciona" aria-labelledby="how-title">
+      <div class="container">
+        <header class="sec-head">
+          <p class="eyebrow" data-scramble>Como funciona</p>
+          <h2 class="h2" id="how-title" data-split>
+            <span class="line-mask"><span>Você manda as fotos,</span></span>
+            <span class="line-mask"><span class="hl">a gente devolve.</span></span>
+          </h2>
+          <p class="lead reveal">Sem sessão de fotos nova, sem visita ao imóvel. Tudo a partir do que você já tem.</p>
+        </header>
+
+        <ol class="how-steps">
+          <li class="how-step">
+            <span class="how-dot" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M12 15V3M7 8l5-5 5 5"/><path d="M4 15v4a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-4"/></svg>
+            </span>
+            <h3 class="how-title">Envie as fotos</h3>
+            <p class="how-text">As fotos do anúncio, do jeito que estão. Pode ser o link do anúncio também.</p>
+          </li>
+          <li class="how-step">
+            <span class="how-dot" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h10"/><circle cx="18" cy="18" r="2.5"/></svg>
+            </span>
+            <h3 class="how-title">Escolha o estágio</h3>
+            <p class="how-text">Foto por foto: tratada por R$ 10 ou com mobília por R$ 15.</p>
+          </li>
+          <li class="how-step">
+            <span class="how-dot" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>
+            </span>
+            <h3 class="how-title">Receba e publique</h3>
+            <p class="how-text">As fotos voltam ajustadas, prontas para subir no anúncio.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ============ PREÇOS ============ -->
+    <section class="pricing" id="precos" aria-labelledby="pricing-title">
+      <div class="container">
+        <header class="sec-head">
+          <p class="eyebrow" data-scramble>Preços</p>
+          <h2 class="h2" id="pricing-title" data-split>
+            <span class="line-mask"><span>Preço por foto,</span></span>
+            <span class="line-mask"><span class="hl">você escolhe.</span></span>
+          </h2>
+          <p class="lead reveal">Você paga só pelas fotos que quiser ajustar e escolhe o estágio de cada uma.</p>
+        </header>
+
+        <div class="price-grid">
+          <article class="card price-card reveal" style="--d: 0">
+            <p class="price-name">Tratada</p>
+            <p class="price"><span class="mono">R$ <b class="count" data-to="10">10</b></span><small> / foto</small></p>
+            <ul class="price-list">
+              <li>Verticais corrigidas</li>
+              <li>Luz equilibrada</li>
+              <li>Janela recuperada</li>
+              <li>Nada é acrescentado ao imóvel</li>
+            </ul>
+            <a class="btn btn-ghost" href="#contato">Quero tratar minhas fotos <span class="arrow" aria-hidden="true">→</span></a>
+          </article>
+
+          <article class="card price-card is-featured reveal" style="--d: 1">
+            <p class="price-name">Com mobília</p>
+            <p class="price"><span class="mono">R$ <b class="count" data-to="15">15</b></span><small> / foto</small></p>
+            <ul class="price-list">
+              <li>Ambiente vazio ganha móveis</li>
+              <li>Comprador enxerga o espaço em uso</li>
+              <li>Identificada como ambientação virtual</li>
+            </ul>
+            <a class="btn btn-primary magnet" href="#contato">Quero mobiliar <span class="arrow" aria-hidden="true">→</span></a>
+          </article>
+        </div>
+        <p class="price-foot">Muitas fotos ou vários imóveis? <a class="link" href="#contato">Fale com a gente</a> e combinamos.</p>
+      </div>
+    </section>
+
+    <!-- ============ FAQ ============ -->
+    <section class="faq" id="faq" aria-labelledby="faq-title">
+      <div class="container faq-inner">
+        <header class="faq-head">
+          <p class="eyebrow" data-scramble>Dúvidas</p>
+          <h2 class="h2" id="faq-title" data-split>
+            <span class="line-mask"><span>Antes de mandar</span></span>
+            <span class="line-mask"><span class="hl">as fotos.</span></span>
+          </h2>
+        </header>
+        <div class="faq-list">
+          <details class="faq-item">
+            <summary>O tratamento muda o imóvel?</summary>
+            <p>Não. Corrigimos o que a câmera errou: verticais, luz e janelas. Nada é acrescentado ao imóvel, e o comprador encontra na visita o que viu na foto.</p>
+          </details>
+          <details class="faq-item">
+            <summary>A mobília virtual não engana o comprador?</summary>
+            <p>Toda foto com mobília sai identificada como ambientação virtual. O objetivo é ajudar a enxergar o espaço em uso, nunca esconder que ele está vazio.</p>
+          </details>
+          <details class="faq-item">
+            <summary>Preciso tirar fotos novas?</summary>
+            <p>Não. Trabalhamos com as fotos que você já tem, as mesmas que estão no anúncio hoje.</p>
+          </details>
+          <details class="faq-item">
+            <summary>Posso escolher o estágio de cada foto?</summary>
+            <p>Sim, foto por foto. Uma pode ser só tratada, por R$ 10, e outra pode ganhar mobília, por R$ 15.</p>
+          </details>
+          <details class="faq-item">
+            <summary>Como eu envio as fotos?</summary>
+            <p>Preencha o formulário no fim da página. A mensagem já vai pronta para o nosso WhatsApp, e por lá combinamos o envio.</p>
+          </details>
+          <!-- TODO: incluir pergunta sobre prazo de entrega quando o cliente confirmar o prazo -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CONTATO ============ -->
+    <section class="contact" id="contato" aria-labelledby="contact-title">
+      <div class="container contact-inner">
+        <div class="contact-copy">
+          <p class="eyebrow" data-scramble>Contato</p>
+          <h2 class="h2" id="contact-title" data-split>
+            <span class="line-mask"><span>Seu próximo anúncio</span></span>
+            <span class="line-mask"><span class="hl">começa aqui.</span></span>
+          </h2>
+          <p class="lead reveal">Conte quantas fotos são e qual estágio você quer. A gente responde e combina o envio.</p>
+          <ul class="contact-points reveal">
+            <li>Sem fotos novas, usamos as que você já tem</li>
+            <li>A partir de R$ 10 por foto</li>
+            <li>Ambientação virtual sempre identificada</li>
+          </ul>
+        </div>
+
+        <!-- Guia Kairo: cartão do formulário claro, mesmo em seção escura -->
+        <form class="form-card reveal" id="form-contato" novalidate>
+          <div class="field">
+            <label for="f-nome">Nome</label>
+            <input id="f-nome" name="nome" type="text" autocomplete="name" required />
+            <span class="field-error" aria-live="polite"></span>
+          </div>
+          <div class="field">
+            <label for="f-whats">WhatsApp</label>
+            <input id="f-whats" name="whatsapp" type="tel" inputmode="tel" autocomplete="tel" placeholder="(11) 90000-0000" required />
+            <span class="field-error" aria-live="polite"></span>
+          </div>
+          <div class="field-row">
+            <div class="field">
+              <label for="f-qtd">Quantas fotos?</label>
+              <input id="f-qtd" name="quantidade" type="number" min="1" inputmode="numeric" placeholder="Ex.: 12" />
+            </div>
+            <div class="field">
+              <label for="f-estagio">Estágio</label>
+              <select id="f-estagio" name="estagio">
+                <option value="Tratada">Tratada, R$ 10 por foto</option>
+                <option value="Com mobília">Com mobília, R$ 15 por foto</option>
+                <option value="Ainda não sei">Ainda não sei</option>
+              </select>
+            </div>
+          </div>
+          <div class="field">
+            <label for="f-link">Link do anúncio <span class="opt">(opcional)</span></label>
+            <input id="f-link" name="link" type="url" inputmode="url" placeholder="https://" />
+          </div>
+          <button class="btn btn-primary form-submit" type="submit">Preparar mensagem <span class="arrow" aria-hidden="true">→</span></button>
+
+          <!-- Aviso depois do envio: a pessoa decide se abre o WhatsApp (não abrimos sozinhos) -->
+          <div class="form-done" hidden>
+            <p class="form-done-title">Mensagem pronta.</p>
+            <p>Toque no botão para abrir o WhatsApp com os dados preenchidos e enviar para a gente.</p>
+            <a class="btn btn-dark form-wa" href="#" target="_blank" rel="noopener">Abrir WhatsApp <span class="arrow" aria-hidden="true">→</span></a>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ RODAPÉ ============ -->
+  <footer class="footer">
+    <div class="container">
+      <p class="footer-end mono"><span class="footer-laser" aria-hidden="true"></span>Você chegou ao depois.</p>
+      <div class="footer-bar">
+        <a class="logo" href="#topo" aria-label="AJUSTA, voltar ao início" data-logotipo>
+          <svg class="logo-icon" viewBox="0 0 100 100" aria-hidden="true">
+            <polygon class="leg leg-l" points="4,96 30,96 47,6 38,6" />
+            <polygon class="leg leg-r" points="53,6 62,6 96,96 70,96" />
+          </svg>
+          <span class="logo-word" aria-hidden="true">ΛJUSTΛ</span>
+        </a>
+        <span class="footer-rule" aria-hidden="true"></span>
+        <span class="footer-tag">Da ideia ao impacto</span>
+        <span class="footer-rule" aria-hidden="true"></span>
+        <span class="footer-tag">São Paulo, Brasil</span>
+        <span class="footer-tag">Est. 2026</span>
+      </div>
+      <div class="footer-bottom">
+        <nav class="footer-nav" aria-label="Rodapé">
+          <a class="nav-link" href="#estagios">Estágios</a>
+          <a class="nav-link" href="#portfolio">Portfólio</a>
+          <a class="nav-link" href="#como-funciona">Como funciona</a>
+          <a class="nav-link" href="#precos">Preços</a>
+          <a class="nav-link" href="#faq">FAQ</a>
+        </nav>
+        <p class="footer-copy">© 2026 AJUSTA. Tratamento de fotos para anúncios de imóveis.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Barra fixa no celular -->
+  <a class="btn btn-primary mobile-cta" href="#contato">Enviar fotos <span class="arrow" aria-hidden="true">→</span></a>
+
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+  <script src="js/main.js?v=7"></script>
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+        "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+      }
+    }
+  </script>
+  <script type="module" src="js/a3d.js?v=6"></script>
+</body>
+</html>
