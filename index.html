@@ -5,7 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>AJUSTA | Tratamento de fotos para anúncios de imóveis</title>
   <meta name="description" content="Tratamos as fotos que você já tem: verticais corrigidas, luz equilibrada, janelas recuperadas. A partir de R$ 10 por foto." />
-  <meta name="theme-color" content="#0B0B0B" />
+  <meta name="theme-color" content="#000000" />
+  <!-- Ícone da aba: a logo AJUSTA (A branco no círculo preto) -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='32' fill='%23000'/%3E%3Cg transform='translate(15.5 17.5) scale(.33)' fill='%23F5F5F5' stroke='%23F5F5F5' stroke-width='2.4' stroke-linejoin='round'%3E%3Cpolygon points='39.6,0.8 48.3,0.8 48.3,28.7 46.6,33 23.8,87 3,87 0.9,85.2 37.8,3.2'/%3E%3Cpolygon points='60.8,0.8 52.1,0.8 52.1,28.7 53.8,33 76.6,87 97.4,87 99.5,85.2 62.6,3.2'/%3E%3C/g%3E%3C/svg%3E" />
 
   <!-- A revelação no scroll só esconde conteúdo quando o JS confirmou que rodou -->
   <script>document.documentElement.classList.add('js');</script>
@@ -16,7 +18,7 @@
   <link rel="preconnect" href="https://images.unsplash.com" />
 
   <!-- ?v= contra cache: atualize a cada publicação -->
-  <link rel="stylesheet" href="css/style.css?v=9" />
+  <link rel="stylesheet" href="css/style.css?v=10" />
 </head>
 <body>
   <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
@@ -27,9 +29,9 @@
   <!-- ============ NAV ============ -->
   <header class="nav" id="nav">
     <a class="logo" href="#topo" aria-label="AJUSTA, voltar ao início" data-logotipo>
-      <svg class="logo-icon" viewBox="0 0 100 100" aria-hidden="true">
-        <polygon class="leg leg-l" points="4,96 30,96 47,6 38,6" />
-        <polygon class="leg leg-r" points="53,6 62,6 96,96 70,96" />
+      <svg class="logo-icon" viewBox="-2 -2 104.4 93" aria-hidden="true">
+        <polygon class="leg leg-l" points="39.6,0.8 48.3,0.8 48.3,28.7 46.6,33 23.8,87 3,87 0.9,85.2 37.8,3.2" />
+        <polygon class="leg leg-r" points="60.8,0.8 52.1,0.8 52.1,28.7 53.8,33 76.6,87 97.4,87 99.5,85.2 62.6,3.2" />
       </svg>
       <span class="logo-word" aria-hidden="true">ΛJUSTΛ</span>
     </a>
@@ -464,7 +466,7 @@
         <div class="commit-visual">
           <canvas class="commit-canvas" aria-hidden="true"></canvas>
           <!-- Reserva: aparece sem WebGL, no celular e com movimento reduzido -->
-          <svg class="commit-fallback" viewBox="0 0 100 100" aria-hidden="true">
+          <svg class="commit-fallback" viewBox="-2 -2 104.4 93" aria-hidden="true">
             <defs>
               <linearGradient id="metal" x1="0" y1="0" x2="1" y2="1">
                 <stop offset="0" style="stop-color: var(--metal-hi)" />
@@ -472,8 +474,10 @@
                 <stop offset="1" style="stop-color: var(--metal-hi)" />
               </linearGradient>
             </defs>
-            <polygon points="4,96 30,96 47,6 38,6" fill="url(#metal)" />
-            <polygon points="53,6 62,6 96,96 70,96" fill="url(#metal)" />
+            <g fill="url(#metal)" stroke="url(#metal)" stroke-width="2.4" stroke-linejoin="round">
+              <polygon points="39.6,0.8 48.3,0.8 48.3,28.7 46.6,33 23.8,87 3,87 0.9,85.2 37.8,3.2" />
+              <polygon points="60.8,0.8 52.1,0.8 52.1,28.7 53.8,33 76.6,87 97.4,87 99.5,85.2 62.6,3.2" />
+            </g>
             <line x1="0" y1="62" x2="100" y2="62" style="stroke: var(--accent)" stroke-width=".8" />
           </svg>
         </div>
@@ -677,9 +681,9 @@
       <p class="footer-end mono"><span class="footer-laser" aria-hidden="true"></span>Você chegou ao depois.</p>
       <div class="footer-bar">
         <a class="logo" href="#topo" aria-label="AJUSTA, voltar ao início" data-logotipo>
-          <svg class="logo-icon" viewBox="0 0 100 100" aria-hidden="true">
-            <polygon class="leg leg-l" points="4,96 30,96 47,6 38,6" />
-            <polygon class="leg leg-r" points="53,6 62,6 96,96 70,96" />
+          <svg class="logo-icon" viewBox="-2 -2 104.4 93" aria-hidden="true">
+            <polygon class="leg leg-l" points="39.6,0.8 48.3,0.8 48.3,28.7 46.6,33 23.8,87 3,87 0.9,85.2 37.8,3.2" />
+            <polygon class="leg leg-r" points="60.8,0.8 52.1,0.8 52.1,28.7 53.8,33 76.6,87 97.4,87 99.5,85.2 62.6,3.2" />
           </svg>
           <span class="logo-word" aria-hidden="true">ΛJUSTΛ</span>
         </a>
@@ -717,6 +721,6 @@
       }
     }
   </script>
-  <script type="module" src="js/a3d.js?v=6"></script>
+  <script type="module" src="js/a3d.js?v=7"></script>
 </body>
 </html>

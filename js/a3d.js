@@ -60,18 +60,20 @@ function init() {
     });
     shape.closePath();
     const geo = new THREE.ExtrudeGeometry(shape, {
-      depth: DEPTH, bevelEnabled: true, bevelThickness: 0.05, bevelSize: 0.04, bevelSegments: 4,
+      depth: DEPTH, bevelEnabled: true, bevelThickness: 0.06, bevelSize: 0.06, bevelSegments: 5,
     });
     geo.translate(0, 0, -DEPTH / 2);
     const mesh = new THREE.Mesh(geo, material);
-    mesh.userData.home = new THREE.Vector3((cx - 50) * S, (50 - cy) * S, 0);
+    // Centro do desenho da logo (viewBox -2 -2 104.4 93): x 50.2, y 44
+    mesh.userData.home = new THREE.Vector3((cx - 50.2) * S, (44 - cy) * S, 0);
     mesh.position.copy(mesh.userData.home);
     return mesh;
   }
 
   const group = new THREE.Group();
-  const legL = makeLeg([[4, 96], [30, 96], [47, 6], [38, 6]]);
-  const legR = makeLeg([[53, 6], [62, 6], [96, 96], [70, 96]]);
+  // Nova logo: hastes retas e paralelas no topo, que se abrem em diagonal
+  const legL = makeLeg([[39.6, 0.8], [48.3, 0.8], [48.3, 28.7], [46.6, 33], [23.8, 87], [3, 87], [0.9, 85.2], [37.8, 3.2]]);
+  const legR = makeLeg([[60.8, 0.8], [52.1, 0.8], [52.1, 28.7], [53.8, 33], [76.6, 87], [97.4, 87], [99.5, 85.2], [62.6, 3.2]]);
   group.add(legL, legR);
   scene.add(group);
 
