@@ -1,4 +1,6 @@
 .vercel
 .env*
-# permissões locais do Claude Code (pessoais, não vão para o repositório)
-.claude/settings.local.json
+# Anotações internas e ferramentas locais: ficam só no computador (repositório público)
+.claude/
+DESIGN.md
+PROGRESSO.md
