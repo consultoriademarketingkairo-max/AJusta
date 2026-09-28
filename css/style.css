@@ -93,7 +93,11 @@
 
 /* Tamanho-raiz: desktop pede letra menor, celular pede letra maior */
 html { font-size: 93.75%; -webkit-text-size-adjust: 100%; }
-@media (max-width: 640px) { html { font-size: 106.25%; } }
+@media (max-width: 640px) {
+  html { font-size: 106.25%; }
+  /* Título do hero: cada linha ("DO SEU ANÚNCIO" ≈ 8,4em) cabe inteira na largura útil, sem passar do tamanho normal */
+  :root { --fs-hero: min(2.6rem, calc((100vw - 3rem - 4px) / 8.5)); }
+}
 
 /* ---------- Reset ---------- */
 *, *::before, *::after { box-sizing: border-box; }
