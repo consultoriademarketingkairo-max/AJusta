@@ -674,6 +674,21 @@
     }, { threshold: 1 }).observe(footEnd);
   }
 
+  /* ---------- Reflexo prateado na linha de cima de cada seção ---------- */
+  const edged = document.querySelectorAll('.problem, .stages, .adjust, .portfolio, .commit, .how, .pricing, .faq, .contact, .footer');
+  edged.forEach(s => s.classList.add('silver-edge'));
+  if (perf.reduce) edged.forEach(s => s.classList.add('is-seen'));
+  else {
+    const ioEdge = new IntersectionObserver(entries => {
+      entries.forEach(en => {
+        if (!en.isIntersecting) return;
+        en.target.classList.add('is-seen');
+        ioEdge.unobserve(en.target);
+      });
+    }, { rootMargin: '0px 0px -25% 0px' });
+    edged.forEach(s => ioEdge.observe(s));
+  }
+
   /* ---------- Progresso de leitura (laser lateral) ---------- */
   if (hasGSAP && window.ScrollTrigger) {
     gsap.to('.progress-laser', {
